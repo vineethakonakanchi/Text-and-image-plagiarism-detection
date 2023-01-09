@@ -1,0 +1,75 @@
+{% load static %}
+<html>
+<head>
+<title>TEXT and IMAGE Plagiarism Detection</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'default.css' %}" rel="stylesheet" type="text/css" media="screen" />
+ <script LANGUAGE="Javascript" >
+function validate(){
+	var x=document.forms["f1"]["username"].value;
+	var y=document.forms["f1"]["password"].value;
+	if(x == null || x==""){
+		window.alert("Username must be enter");
+		document.f1.t1.focus();
+		return false;
+	}
+	if(y == null || y==""){
+		window.alert("Password must be enter");
+		document.f1.t2.focus();
+		return false;
+	}
+	return true;
+}
+		
+	
+	</script>
+</head>
+<body>
+<div id="wrapper">
+  <div id="header">
+    <div id="logo">
+      <h1><font color="orange" size=6>TEXT and IMAGE Plagiarism Detection</font></h1>
+	  <marquee><font color="pink" size=4>TEXT and IMAGE Plagiarism Detection</font></marquee>
+    </div>
+   
+  
+    </div>
+  </div>
+  <div id="menu">
+     <ul>
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'Login' %}">Login</a></li>
+	  <li><a href="{% url 'Register' %}">New User Signup Here</a></li>
+      
+   </ul>
+  </div>
+  <div class="entry">
+   <br/><br/><br/>
+	<font size="" color="white"><center>{{ data }}</center></font>
+	 <br>
+	 <center><font size="3" color="white">User Login Screen</font></center>
+	<form name="f1" method="post" action={% url 'UserLogin' %} OnSubmit="return validate()">
+	{% csrf_token %}
+	<br><br>
+	<TABLE align=center width="35%" class="notepad">
+		<TR><TH align="left">Username
+		<TD>&nbsp;&nbsp;<Input type=text name="username" value='' class="form-control">
+		<div id='nameid'></div>
+		</TD>
+		</TR>
+		
+		<TR><TH align="left">Password
+		<TD>&nbsp;&nbsp;<Input type='password' name="password"  value='' class="form-control">
+		</TR>
+		  <TR>
+				 <TD></TD>
+			<TD>	
+		  <input type="submit" value="login">
+		 
+		  </TABLE>
+		
+</form>
+</div>
+
+</body>
+</html>
